@@ -7,7 +7,7 @@ Self-Driving Car Engineer Nanodegree Program
 
 The x and y postion, psi orientation, velocity, cross track error and psi error denotes the state of car in this model. The acuators are driven by the output of the model which is steering angle(+-25 degrees) amd the throttle(+1 denotes full throttle and -1 denotes full breaking). Update Equations are as follows for the given kinamatic model.
 
-![model](./img/modeleqn.png)
+![model](./img/modelequ.png)
 
 ## Timestep Length and Elapsed Duration (N & dt)
 
