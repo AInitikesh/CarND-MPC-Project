@@ -1,0 +1,1 @@
+/usr/bin/cc       CMakeFiles/cmTC_a1330.dir/feature_tests.c.o  -o cmTC_a1330 -rdynamic 
