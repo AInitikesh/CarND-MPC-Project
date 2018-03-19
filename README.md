@@ -15,7 +15,7 @@ Initially I used N=25 and dt=0.05 which was giving out abrupt results. Later I w
 
 ## Polynomial Fitting and MPC Preprocessing
 
-Prior to MPC I am converting the global coordintes ptsx and ptsy to vehicle's local coordinate waypoints_x and waypoints_y using the following formulas. Later I ran polyfit on waypoints to calculate coefficients of the 3rd degree curve in which the car is moving. Using this coefficients I calulated the cross track error and the psi error. These errors are used to denote the state of the car ie (x, y, psi, v, cte, psi error)
+Prior to MPC I am converting the global coordintes ptsx and ptsy to vehicle's local coordinate waypoints_x and waypoints_y using the following formulas. Later I ran polyfit on waypoints to calculate coefficients of the 3rd degree polynomial curve in which the car is moving. Using this coefficients I calulated the cross track error and the psi error. These errors are used to denote the state of the car ie (x, y, psi, v, cte, psi error)
 
 ## Model Predictive Control with Latency
 
