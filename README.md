@@ -5,9 +5,9 @@ Self-Driving Car Engineer Nanodegree Program
 
 ## Model
 
-The x and y postion, psi orientation, velocity, cross track error and psi error denotes the state of car in this model. The acuators are driven by the output of the model which is steering angle(+-25 degrees) amd the throttle(+1 denotes full throttle and -1 denotes full breaking). Update Equations are as follows for the given kinamatic model.
+The x and y postion, psi orientation, velocity, cross track error and psi error denotes the state of car in this model. The acuators are driven by the output of the model which is steering angle(+-25 degrees) and the throttle(+1 denotes full throttle and -1 denotes full breaking). Update Equations are as follows for the given kinamatic model.
 
-![model](./img/modeleqn.png)
+![model](./img/modelequ.png)
 
 ## Timestep Length and Elapsed Duration (N & dt)
 
@@ -15,11 +15,11 @@ Initially I used N=25 and dt=0.05 which was giving out abrupt results. Later I w
 
 ## Polynomial Fitting and MPC Preprocessing
 
-Prior to MPC I am converting the global coordintes ptsx and ptsy to vehicle's local coordinate waypoints_x and waypoints_y using the following formulas. Later I ran polyfit on waypoints to calculate coefficients of the 3rd degree curve in which the car is moving. Using this coefficients I calulated the cross track error and the psi error. These errors are used to denote the state of the car ie (x, y, psi, v, cte, psi error)
+Prior to MPC I am converting the global coordintes ptsx and ptsy to vehicle's local coordinate waypoints_x and waypoints_y. Later I ran polyfit on waypoints to calculate coefficients of the 3rd degree curve in which the car will be moving. Using this coefficients I calulated the cross track error and the psi error. These errors are used to denote the state of the car ie (x, y, psi, v, cte, psi error)
 
 ## Model Predictive Control with Latency
 
-
+For dealing with latency I am predicting the future x state of vehicle using the velocity of the car(d = v * dt). I added this logic at line 119 in main.cpp 
 
 
 ## Dependencies

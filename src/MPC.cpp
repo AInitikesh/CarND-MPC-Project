@@ -21,7 +21,7 @@ double dt = 0.1;
 // This is the length from front to CoG that has a similar radius.
 const double Lf = 2.67;
 
-double ref_v = 100;
+double ref_v = 60;
 double ref_cte = 0;
 double ref_epsi = 0;
 
@@ -61,8 +61,8 @@ public:
     // Minimize the use of actuators.
     for (int t = 0; t < N - 1; t++)
     {
-      fg[0] += 100*CppAD::pow(vars[delta_start + t], 2);
-      fg[0] += 100*CppAD::pow(vars[a_start + t], 2);
+      fg[0] += CppAD::pow(vars[delta_start + t], 2);
+      fg[0] += CppAD::pow(vars[a_start + t], 2);
     }
 
     // Minimize the value gap between sequential actuations.

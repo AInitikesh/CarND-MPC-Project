@@ -115,9 +115,11 @@ int main() {
           double cte = polyeval(coeffs, 0);
           double epsi = - atan(coeffs[1]);
 
+          // x distance traveled by car in 100 ms = v * dt
+          double px = v * 100 * 3/ (60 * 60);
 
           Eigen::VectorXd state(6);
-          state << 0, 0, 0, v, cte, epsi;
+          state << px, 0, 0, v, cte, epsi;
 
           auto vars = mpc.Solve(state, coeffs);
 
