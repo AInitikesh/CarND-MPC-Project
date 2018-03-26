@@ -34,7 +34,7 @@ Prior to MPC I am converting the global coordinates ptsx and ptsy to vehicle's l
 
 ## Model Predictive Control with Latency
 
-For dealing with latency I am predicting the future x state of the vehicle using the velocity of the car(d = v * dt). I added this logic at line 119 in main.cpp 
+For dealing with latency I am predicting the future state of the vehicle using the velocity of the car with the MPC equations. I added this logic at line 109 - 116 in main.cpp 
 
 
 ## Dependencies
