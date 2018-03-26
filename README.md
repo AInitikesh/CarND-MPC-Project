@@ -11,7 +11,22 @@ The x and y position, psi orientation, velocity, cross track error and psi error
 
 ## Timestep Length and Elapsed Duration (N & dt)
 
-Initially, I used N=25 and dt=0.05 which was giving out abrupt results. Later I was going through the MPC QA sessions and found that N=10 and dt=0.1 work really well with this model.
+N is the total number of points we are considering to calculate the future state of the vehicle. dt is the time interval between the two consecutive future states.
+
+### Why smaller dt is better? (finer resolution)?
+
+dt is the interval between two consecutive future states. So if dt is smaller we will be able to predict the states of the vehicle very accurately in near future.
+
+### Why larger N isn't always better? (computational time)
+
+N is the number of future states we are predicting. N will be directly proportional to the computation time. So larger value of N can cost a lot of computation.
+
+### How does time horizon (N*dt) affect the predicted path? This relates to the car speed too.
+
+As discussed above increasing N and decreasing dt can increase the accuracy of future predicted states but this could also affect the overall performance of the MPC algorithm. If the car is at high speeds and we have a Large N and very small dt then the computation could take a lager time and the car could be moving ahead of the predicted.
+
+The most popular choice is N=10, dt=0.1 which worked well for this project too.
+
 
 ## Polynomial Fitting and MPC Preprocessing
 

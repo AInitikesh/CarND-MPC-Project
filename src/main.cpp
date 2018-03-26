@@ -104,22 +104,30 @@ int main() {
           Eigen::VectorXd waypoints_x(ptsx.size());
           Eigen::VectorXd waypoints_y(ptsy.size());
 
+          double Lf = 2.67;
+
+          // x distance traveled by car in 100 ms 
+          double latency = 100.00 / 1000.00;
+          double nv = v + throttle_value * latency;
+
+          double npsi = psi + nv / Lf * -steer_value * latency;
+          double npx = px + nv * cos(npsi) * latency;
+          double npy = py + nv * sin(npsi) * latency;
+          // std::cout << "v " << px << " nv " << npx << " t " << throttle_value <<std::endl;
+
           for (int i = 0; i < ptsx.size(); i++) {
-            double shift_x = ptsx[i] - px;
-            double shift_y =  ptsy[i] - py;
-            waypoints_x[i] = (shift_x * cos(0-psi) - shift_y * sin(0-psi));
-            waypoints_y[i] = (shift_x * sin(0-psi) + shift_y * cos(0-psi));
+            double shift_x = ptsx[i] - npx;
+            double shift_y =  ptsy[i] - npy;
+            waypoints_x[i] = (shift_x * cos(0-npsi) - shift_y * sin(0-npsi));
+            waypoints_y[i] = (shift_x * sin(0-npsi) + shift_y * cos(0-npsi));
           }
 
           auto coeffs = polyfit(waypoints_x, waypoints_y, 3) ;
           double cte = polyeval(coeffs, 0);
           double epsi = - atan(coeffs[1]);
 
-          // x distance traveled by car in 100 ms = v * dt
-          double px = v * 100 * 3/ (60 * 60);
-
           Eigen::VectorXd state(6);
-          state << px, 0, 0, v, cte, epsi;
+          state << 0, 0, 0, nv, cte, epsi;
 
           auto vars = mpc.Solve(state, coeffs);
 
@@ -144,8 +152,6 @@ int main() {
               mpc_y_vals.push_back(vars[i]);
             }
           }
-
-          double Lf = 2.67;
 
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
