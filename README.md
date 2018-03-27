@@ -23,7 +23,7 @@ N is the number of future states we are predicting. N will be directly proportio
 
 ### How does time horizon (N*dt) affect the predicted path? This relates to the car speed too.
 
-As discussed above increasing N and decreasing dt can increase the accuracy of future predicted states but this could also affect the overall performance of the MPC algorithm. If the car is at high speeds and we have a Large N and very small dt then the computation could take a lager time and the car could be moving ahead of the predicted.
+As discussed above increasing N and decreasing dt can increase the accuracy of future predicted states but this could also affect the overall performance of the MPC algorithm. If the car is at high speeds and we have a Large N and very small dt then the computation could take a larger time and the car could be moving ahead of the predicted state.
 
 The most popular choice is N=10, dt=0.1 which worked well for this project too.
 
