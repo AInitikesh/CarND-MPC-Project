@@ -2,7 +2,9 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/ZvIw60UMj6Q/0.jpg)](http://www.youtube.com/watch?v=ZvIw60UMj6Q "Model Predictive Control")
+<div align="center">
+<iframe width="560" height="315" allowfullscreen frameborder="0" src="https://www.youtube.com/embed/ZvIw60UMj6Q"></iframe>
+</div>
 
 ## Model
 
