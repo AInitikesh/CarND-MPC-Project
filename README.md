@@ -3,6 +3,8 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+<iframe width="560" height="315" allowfullscreen frameborder="0" src="https://www.youtube.com/embed/ZvIw60UMj6Q"></iframe>
+
 ## Model
 
 The x and y position, psi orientation, velocity, cross track error and psi error denotes the state of a car in this model. The actuators are driven by the output of the model which is steering angle(+-25 degrees) and the throttle(+1 denotes full throttle and -1 denotes full breaking). Update Equations are as follows for the given kinematic model.
